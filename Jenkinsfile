@@ -28,7 +28,9 @@ pipeline {
         stage('Deploy Model') {
             steps {
                 sh '''
-                    cp iris_model.pkl "$HOME/app/iris_model.pkl"
+                    mkdir -p /var/lib/jenkins/app
+                    cp iris_model.pkl /var/lib/jenkins/app/iris_model.pkl
+                    ls -lh /var/lib/jenkins/app/iris_model.pkl
                 '''
             }
         }
